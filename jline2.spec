@@ -15,7 +15,7 @@ Version:          2.10
 # 60.X where X is an increasing int. 60 for rhel-6. We use
 # 70.X for rhel-7. For some reason we cannot rely on the
 # dist tag.
-Release:          70.3%{?dist}
+Release:          70.5%{?dist}
 Summary:          JLine is a Java library for handling console input
 Group:            Development/Libraries
 License:          BSD and ASL 2.0
@@ -88,11 +88,19 @@ This package contains the API documentation for %{name}.
 %files -f .mfiles
 %doc CHANGELOG.md README.md LICENSE.txt
 %dir %{_javadir}/%{pkg_name}
+%dir %{_mavenpomdir}/%{pkg_name}
 
 %files javadoc -f .mfiles-javadoc
 %doc LICENSE.txt
 
 %changelog
+* Wed Mar 30 2016 Severin Gehwolf <sgehwolf@redhat.com> 1.0.18-70.5
+- Own jline2 pom directory.
+- Resolves: RHBZ#1317970
+
+* Wed Jan 27 2016 Severin Gehwolf <sgehwolf@redhat.com> 1.0.18-70.4
+- Rebuild for RHSCL 2.2.
+
 * Mon Jan 19 2015 Severin Gehwolf <sgehwolf@redhat.com> 1.0.18-70.3
 - Use java common's libs as BR.
 
